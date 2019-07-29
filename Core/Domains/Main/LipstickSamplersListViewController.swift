@@ -38,16 +38,9 @@ extension LipstickSamplersListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // select item and tell model about it.
         // also update cell style?
-        guard self.model?.selectedIndexPath != indexPath else { return }
-        let oldIndexPath = self.model?.selectedIndexPath
-        self.model?.selectedIndexPath = indexPath
-//        (collectionView.cellForItem(at: indexPath) as? Cell)? = true
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        self.model?.didSelect?(indexPath.row)
         
-        collectionView.performBatchUpdates({
-            collectionView.reloadItems(at: [indexPath, oldIndexPath].compactMap{$0})
-        }, completion: nil)
+        self.model?.selectIndexPath(indexPath: indexPath)
+        self.selectCellAtSelectedIndexPath()
         // and calculate offset.
         // should be at the middle of screen.
     }
@@ -74,25 +67,12 @@ extension LipstickSamplersListViewController: UICollectionViewDelegateFlowLayout
         // remainsWidth is a width between
         let size = min(remainsWidth, remainsHeight)
 
-        if indexPath == self.model?.selectedIndexPath {
-//            return CGSize(width: 50, height: 50)
-            return CGSize(width: size, height: size)
-        }
-        else {
-//            return CGSize(width: 45, height: 45)
-            return CGSize(width: size * ratio(), height: size * ratio())
-        }
-    }
-    
-    func ratio() -> CGFloat {
-        return 0.87
+        return CGSize(width: size, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        let width = collectionView.bounds.size.width
         let height = collectionView.bounds.size.height
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let remainsHeight = height - flowLayout.sectionInset.top  - flowLayout.sectionInset.bottom
         
         // we have 4 elements.
         // two small halves, one big and two small.
@@ -117,7 +97,7 @@ extension LipstickSamplersListViewController: UICollectionViewDataSource {
         if let model = self.model?.element(at: indexPath), let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.cellReuseIdentifier(), for: indexPath) as? Cell {
             let cellModel = Cell.Model()
             cellModel.color = model.color
-            cellModel.selected = self.model?.selectedIndexPath == indexPath
+            cellModel.selected = model.selected
             cell.model = cellModel
             return cell
         }
@@ -148,7 +128,7 @@ extension LipstickSamplersListViewController {
             view.delegate = self
             view.dataSource = self
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = .clear
+            view.backgroundColor = .white
             return view
         }()
         

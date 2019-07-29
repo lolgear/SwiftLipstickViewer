@@ -10,9 +10,14 @@ import Foundation
 class Box<T> {
     typealias Listening = (T) -> ()
     private var listening: Listening?
+    var internalValue: T
     var value: T {
-        didSet(newValue) {
+        set {
+            self.internalValue = newValue
             self.listening?(newValue)
+        }
+        get {
+            return self.internalValue
         }
     }
     
@@ -22,12 +27,10 @@ class Box<T> {
     }
     
     init(_ value: T) {
-        self.value = value
+        self.internalValue = value
     }
     
     func notify() {
         self.listening?(self.value)
     }
 }
-
-// we need also observe set ( old and new value pair )

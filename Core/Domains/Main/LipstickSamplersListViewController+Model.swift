@@ -22,17 +22,46 @@ extension LipstickSamplersListViewController {
     class Model {
         struct Row {
             var color: UIColor?
+            var selected: Box<Bool> = Box(false)
+            init(color: UIColor?) {
+                self.color = color
+            }
+            init() {}
         }
+        
         
         var didSelect: ((Int) -> ())?
         
         var list = [Row]() {
             didSet {                
-                self.selectedIndexPath = IndexPath(row: self.list.count / 2, section: 0)
+                self.selectIndexPath(indexPath: IndexPath(row: self.list.count / 2, section: 0))
             }
         }
         
+        func selectIndexPath(indexPath: IndexPath?) {
+            // here we can
+            print("was: {\(self.list.map{$0.selected.value})} new: IndexPath: \(indexPath)")
+            guard indexPath != self.selectedIndexPath else { return }
+            
+            if let old = self.selectedIndexPath {
+                let element = self.element(at: old)
+                element.selected.value = false
+            }
+            
+            self.selectedIndexPath = indexPath
+            
+            if let new = self.selectedIndexPath {
+                let element = self.element(at: new)
+                element.selected.value = true
+                self.didSelect?(new.row)
+            }
+            print("now: {\(self.list.map{$0.selected.value})} set: IndexPath: \(indexPath)")
+        }
+        
+        
+        
         var selectedIndexPath: IndexPath?
+        
         var listener: TableViewModelProtocol__Listener?
     }
 }
@@ -62,6 +91,7 @@ extension LipstickSamplersListViewController.Model : TableViewModelProtocol {
     
     func element(at: IndexPath) -> Row {
         guard at.row < self.list.count else { return Row() }
+        
         return self.list[at.row % self.list.count]
     }
     

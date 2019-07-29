@@ -14,7 +14,7 @@ extension LipstickSamplersListViewController {
     class Cell: UICollectionViewCell {
         class Model {
             var color: UIColor?
-            var selected: Bool = false
+            var selected: Box<Bool> = Box(false)
             init() {}
         }
         
@@ -22,8 +22,17 @@ extension LipstickSamplersListViewController {
             didSet {
                 self.filledView?.update(strokedColor: self.model?.color)
                 self.strokedView?.update(strokedColor: self.model?.color)
-                self.strokedView?.isHidden = self.model?.selected == false
+                self.model?.selected.bind(listening: { (value) in
+                    self.animateSelection(value: value)
+                })
             }
+        }
+        
+        func animateSelection(value: Bool) {
+            UIView.transition(with: self, duration: 0.3, options: [], animations: {
+                self.strokedView?.alpha = value ? 1.0 : 0.0
+                self.transform = value ? CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1) : CGAffineTransform.identity
+            }, completion: nil)
         }
         
         var commonOffset: CGFloat = 4 // offset between views.
