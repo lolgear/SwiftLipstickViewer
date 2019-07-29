@@ -38,9 +38,7 @@ extension LipstickSamplersListViewController {
             }
         }
         
-        func selectIndexPath(indexPath: IndexPath?) {
-            // here we can
-            print("was: {\(self.list.map{$0.selected.value})} new: IndexPath: \(indexPath)")
+        func selectIndexPath(indexPath: IndexPath?) {            
             guard indexPath != self.selectedIndexPath else { return }
             
             if let old = self.selectedIndexPath {
@@ -55,7 +53,6 @@ extension LipstickSamplersListViewController {
                 element.selected.value = true
                 self.didSelect?(new.row)
             }
-            print("now: {\(self.list.map{$0.selected.value})} set: IndexPath: \(indexPath)")
         }
         
         
