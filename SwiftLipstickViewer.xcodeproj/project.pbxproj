@@ -39,6 +39,8 @@
 		0A6EFCBD22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCBC22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift */; };
 		0A6EFCBF22EE15C400BE391E /* LoadingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCBE22EE15C400BE391E /* LoadingCoordinator.swift */; };
 		0A6EFCC122EE15E900BE391E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCC022EE15E900BE391E /* MainCoordinator.swift */; };
+		0A938AE222EF2C2A00B5D968 /* NetworkWorm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1371E22EA28E200C77468 /* NetworkWorm.framework */; };
+		0A938AE322EF2C2A00B5D968 /* NetworkWorm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1371E22EA28E200C77468 /* NetworkWorm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0AA136B722EA0F8000C77468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA136B422EA0F8000C77468 /* Assets.xcassets */; };
 		0AA136B822EA0F8000C77468 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA136B522EA0F8000C77468 /* LaunchScreen.storyboard */; };
 		0AA136C222EA0FC400C77468 /* ImagineDragon.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AA136C022EA0FC400C77468 /* ImagineDragon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0A938AE422EF2C2A00B5D968 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AA1371922EA28E200C77468 /* NetworkWorm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A20E7EF213D69BF000B1777;
+			remoteInfo = NetworkWorm;
+		};
 		0AA136C322EA0FC400C77468 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0A067FDD22EA0CC100A6ED13 /* Project object */;
@@ -82,6 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0A938AE322EF2C2A00B5D968 /* NetworkWorm.framework in Embed Frameworks */,
 				0AA136C622EA0FC400C77468 /* ImagineDragon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -142,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A938AE222EF2C2A00B5D968 /* NetworkWorm.framework in Frameworks */,
 				0AA136C522EA0FC400C77468 /* ImagineDragon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +398,7 @@
 			dependencies = (
 				0AA1372022EA299800C77468 /* PBXTargetDependency */,
 				0AA136C422EA0FC400C77468 /* PBXTargetDependency */,
+				0A938AE522EF2C2A00B5D968 /* PBXTargetDependency */,
 			);
 			name = SwiftLipstickViewer;
 			productName = SwiftLipstickViewer;
@@ -538,6 +550,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0A938AE522EF2C2A00B5D968 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NetworkWorm;
+			targetProxy = 0A938AE422EF2C2A00B5D968 /* PBXContainerItemProxy */;
+		};
 		0AA136C422EA0FC400C77468 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0AA136BD22EA0FC300C77468 /* ImagineDragon */;
