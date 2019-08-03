@@ -15,7 +15,7 @@ class LoadingCoordinator: BaseCoordinator {
     var model: LaunchScreen.LoadingViewController.Model?
     override func start() {
         self.showLoading { [weak self] in
-            self?.dataProvider?.dataProvider?.getProducts(options: [], { [weak self] (result) in
+            self?.dataProvider?.dataProvider?.getProducts(options: [.shouldWaitForImages], { [weak self] (result) in
                 DispatchQueue.main.async {
                     self?.model?.finish()
                 }

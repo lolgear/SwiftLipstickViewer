@@ -63,6 +63,21 @@ public protocol DownloadImageOperationService {
     func downloadAtUrl(url: URL?,  onResponse: @escaping DownloadImageOperation.TaskCompletion) -> CancellationToken?
 }
 
+extension DownloadImageOperation: NSKeyValueObservingCustomization {
+    public static func keyPathsAffectingValue(for key: AnyKeyPath) -> Set<AnyKeyPath> {
+        if ([\Operation.isReady, \Operation.isExecuting, \Operation.isFinished].contains{ k in
+            return k == key
+        }) {
+            return [\DownloadImageOperation.state]
+        }
+        return Set()
+    }
+    
+    public static func automaticallyNotifiesObservers(for key: AnyKeyPath) -> Bool {
+        return true
+    }
+}
+
 public class DownloadImageOperation: Operation {
     public typealias TaskCompletion = (Triplet<URL?, Data?, Error?>) -> Void
     public typealias Completion = (Data?) -> ()
@@ -75,6 +90,13 @@ public class DownloadImageOperation: Operation {
     @objc(DownloadImageOperation_State)
     enum State: Int {
         case ready, executing, finished
+        func key() -> String {
+            switch self {
+            case .ready: return "isReady"
+            case .executing: return "isExecuting"
+            case .finished: return "isFinished"
+            }
+        }
     }
     
     var stateQueue = DispatchQueue.init(label: "operation_state_queue", qos: .utility, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
@@ -82,8 +104,10 @@ public class DownloadImageOperation: Operation {
     var internalState: State = .ready
     @objc var state: State {
         set {
-            self.stateQueue.async {
-                self.internalState = newValue
+            self.stateQueue.async { [weak self] in
+                self?.willChangeValue(forKey: newValue.key())
+                self?.internalState = newValue
+                self?.didChangeValue(forKey: newValue.key())
             }
         }
         get {
@@ -106,13 +130,6 @@ public class DownloadImageOperation: Operation {
     }
     
     public override var isAsynchronous: Bool { return true }
-
-    public override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
-        if ["isReady", "isExecuting", "isFinished"].contains(key) {
-            return Set(["state"])
-        }
-        return super.keyPathsForValuesAffectingValue(forKey: key)
-    }
     
     public override func start() {
         if self.isCancelled {
@@ -228,8 +245,9 @@ extension MediaManager {
     // we can't now when we could download image in case of operation.
     // or we could?
     public func imageAtUrl(url: URL?, _ onCompletion: @escaping (URL?, UIImage?) -> ()) -> Statusable? {
-        self.operationQueue.cancelAllOperations()
-//        print("operations count: \(self.operationQueue.operations.count)")
+//        self.operationQueue.cancelAllOperations()
+        print("operations count: \(self.operationQueue.operations.count)")
+        print("operations: \(self.operationQueue.operations)")
         guard let theUrl = url else {
             onCompletion(nil, nil)
             return nil
@@ -253,9 +271,6 @@ extension MediaManager {
 extension MediaManager {
     public func cancellAll() {
         self.operationQueue.cancelAllOperations()
-        //TODO: and cancel all operations?
-//        NetworkService.service()?.client?
-//        NetworkService.service()?.client?
     }
     public func cancel(url: URL) {
         self.operationQueue.operations.filter { ($0 as? DownloadImageOperation)?.url == url }.first?.cancel()
