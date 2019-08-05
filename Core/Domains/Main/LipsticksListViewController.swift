@@ -71,47 +71,26 @@ extension LipsticksListViewController {
             
             let appearingOffset = CGFloat(direction.direction()) * middleFrame.size.width
             let dismissingOffset = CGFloat(direction.opposite().direction()) * middleFrame.size.width
-
             
-//            let appearingInitialFrame = CGRect(origin: .init(x: appearingOffset, y: middleFrame.origin.y), size: middleFrame.size)
-//            let dismissingFinalFrame = CGRect(origin: .init(x: dismissingOffset, y: middleFrame.origin.y), size: middleFrame.size)
-//
-//            let appearingFinalFrame = old.view.frame
-//
             old.willMove(toParent: nil)
             self.addChild(controller)
             
             self.view.addSubview(controller.view)
-
-
-//            let appearingTransform = CGAffineTransform.identity.translatedBy(x: appearingOffset, y: 0)
-//            let dismissingTransform = CGAffineTransform.identity.translatedBy(x: dismissingOffset, y: 0)
             
             let appearingConstraints = NSLayoutConstraint.body(item: controller.view, toItem: self.view)
             NSLayoutConstraint.activate(appearingConstraints)
 
             let appearingConstraint = NSLayoutConstraint.constraint(for: controller.view, attribute: .leading, in: self.view)
-//            let appearingTrailing = NSLayoutConstraint.constraint(for: controller.view, attribute: .trailing, in: self.view)
             let dismissingConstraint = NSLayoutConstraint.constraint(for: old.view, attribute: .leading, in: self.view)
 
             appearingConstraint?.constant = appearingOffset
-//            appearingTrailing?.constant = appearingOffset
-//            controller.view.transform = appearingTransform
             self.view.layoutIfNeeded()
             self.view.setNeedsLayout()
             
             
             appearingConstraint?.constant = 0
-//            appearingTrailing?.constant = 0
             dismissingConstraint?.constant = dismissingOffset
-            self.transition(from: old, to: controller, duration: 0.3, options: [], animations: {
-//                controller.view.frame = appearingFinalFrame
-//                old.view.frame = dismissingFinalFrame
-//                appearingConstraint?.constant = 0
-//                appearingTrailing?.constant = 0
-//                dismissingConstraint?.constant = dismissingOffset
-//                old.view.transform = dismissingTransform
-//                controller.view.transform = CGAffineTransform.identity
+            UIView.transition(with: self.view, duration: 0.3, options: [], animations: {
                 self.view.layoutIfNeeded()
             }) { (finished) in
                 old.view.removeFromSuperview()
