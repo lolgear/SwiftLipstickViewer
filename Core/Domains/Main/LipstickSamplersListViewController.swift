@@ -172,7 +172,7 @@ extension LipstickSamplersListViewController: TableViewModelProtocol__Listener {
             let afterIndexPaths = Array(0..<after).map { IndexPath(row: $0, section: 0) }
             self.collectionView?.performBatchUpdates({
                 self.collectionView?.deleteItems(at: beforeIndexPaths)
-                self.collectionView?.insertItems(at: afterIndexPaths)
+                self.collectionView?.reloadItems(at: afterIndexPaths)
                 self.selectCellAtSelectedIndexPath()
             }, completion: nil)
         }

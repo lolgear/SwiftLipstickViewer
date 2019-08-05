@@ -29,8 +29,9 @@ extension LipstickSamplersListViewController {
             init() {}
         }
         
+        typealias PreviousAndNext = (Int?, Int)
         
-        var didSelect: ((Int) -> ())?
+        var didSelect: ((PreviousAndNext) -> ())?
         
         var list = [Row]() {
             didSet {                
@@ -41,17 +42,18 @@ extension LipstickSamplersListViewController {
         func selectIndexPath(indexPath: IndexPath?) {            
             guard indexPath != self.selectedIndexPath else { return }
             
-            if let old = self.selectedIndexPath {
-                let element = self.element(at: old)
+            if let previous = self.selectedIndexPath {
+                let element = self.element(at: previous)
                 element.selected.value = false
             }
             
+            let previous = self.selectedIndexPath
             self.selectedIndexPath = indexPath
             
             if let new = self.selectedIndexPath {
                 let element = self.element(at: new)
                 element.selected.value = true
-                self.didSelect?(new.row)
+                self.didSelect?((previous?.row, new.row))
             }
         }
         
@@ -98,10 +100,8 @@ extension LipstickSamplersListViewController.Model : TableViewModelProtocol {
 // MARK: List Manipulations
 extension LipstickSamplersListViewController.Model {
     func reset(list: [Row]) {
-//        self.listener?.didRemoveAll(count: self.list.count)
         let before = self.list
         self.list = list
-//        self.listener?.didAppend(count: self.list.count)
         self.listener?.didReset(before: before.count, after: self.list.count)
     }
     

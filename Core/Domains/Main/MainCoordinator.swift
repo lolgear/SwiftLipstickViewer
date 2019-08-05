@@ -13,18 +13,7 @@ class MainCoordinator: BaseCoordinator {
     var viewController: Domain_Main.MainViewController?
     var dataProvider: DataProviderService?
     var media: MediaDeliveryService?
-    
-    var listModel: LipsticksListViewController.Model?
-    
-    var index = 0
-    var selectedIndex: Int {
-        set {
-            self.index = newValue
-        }
-        get {
-            return self.index
-        }
-    }
+        
     override func start() {
         // so, it is ready and we can configure it properly.
         // configure other controllers.
@@ -36,11 +25,9 @@ class MainCoordinator: BaseCoordinator {
         }
         
         let samplersModel = LipstickSamplersListViewController.Model()
-        samplersModel.didSelect = { [weak self, weak listModel] (index) in
-            let previous = self?.selectedIndex ?? 0
-            self?.selectedIndex = index
-            // and also call wantsMoreData if needed?..
-            listModel?.didSelect?(.init((previous, index)), index)
+        samplersModel.didSelect = { [weak listModel] (index) in
+            let (previous, next) = index
+            listModel?.didSelect?(.init((previous ?? 0, next)), next)
         }
         
 //        let list = [.red, .orange, .yellow, .green, .blue, .purple, .black].map(LipstickSamplersListViewController.Model.Row.init)
@@ -65,20 +52,13 @@ class MainCoordinator: BaseCoordinator {
         let list = self.dataProvider?.dataProvider?.list.compactMap{LipstickSamplersListViewController.Model.Row(color: $0.color)} ?? []
         model.reset(list: list)
     }
-    
-    func selectSampler(model: LipstickSamplersListViewController.Model) {
-        if let selectedIndexPath = model.selectedIndexPath {
-            model.didSelect?(selectedIndexPath.row)
-        }
-    }
-    
+
     func start(model: LipstickSamplersListViewController.Model) {
-        self.dataProvider?.dataProvider?.getProducts({ (result) in
+//        self.dataProvider?.dataProvider?.getProducts({ (result) in
             self.updateSamplers(model: model)
-            self.selectSampler(model: model)
-        })
+//        })
     }
-    
+
     func wantsMoreData(waitingForImages: Bool, onResult: @escaping (Result<Bool>) -> ()) {
         self.dataProvider?.dataProvider?.getProducts(options: waitingForImages ? [.shouldWaitForImages] : [], { (result) in
             // just append data, I suppose?
