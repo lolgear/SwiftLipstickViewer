@@ -1,5 +1,5 @@
 //
-//  LipstickSamplersListViewController+Cell.swift
+//  SamplersListViewController+Cell.swift
 //  SwiftLipstickViewer
 //
 //  Created by Dmitry Lobanov on 28.07.2019.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // MARK: Cell
-extension LipstickSamplersListViewController {
+extension Domain_Main.Lipstick.SamplersListViewController {
     class Cell: UICollectionViewCell {
         class Model {
             var color: UIColor?
@@ -95,7 +95,7 @@ extension LipstickSamplersListViewController {
 }
 
 // MARK: Cell ShapedView
-extension LipstickSamplersListViewController.Cell {
+extension Domain_Main.Lipstick.SamplersListViewController.Cell {
     class ShapedView: UIView {
         var borderLayer: CAShapeLayer?
         func updateLayer() {

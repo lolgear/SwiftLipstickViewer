@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-enum Domain_Main {}
-
 // MARK: Main purpose is to combine ListLipstickViewController and Bottom switcher
 // Maybe we may think of two view controllers - one for bottom and one for top.
 // Add AppCoordinator to understand which data do we have.

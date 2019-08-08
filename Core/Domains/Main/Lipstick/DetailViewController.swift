@@ -1,5 +1,5 @@
 //
-//  LipstickDetailViewController.swift
+//  DetailViewController.swift
 //  SwiftLipstickViewer
 //
 //  Created by Dmitry Lobanov on 27.07.2019.
@@ -10,14 +10,16 @@ import Foundation
 import UIKit
 import ImagineDragon
 
-class LipstickDetailViewController: BaseViewController {
-    var model: Model?
-    var detailsView: View?
-    var operation: Statusable?
+extension Domain_Main.Lipstick {
+    class DetailViewController: BaseViewController {
+        var model: Model?
+        var detailsView: View?
+        var operation: Statusable?
+    }
 }
 
 // MARK: View Lifecycle
-extension LipstickDetailViewController {
+extension Domain_Main.Lipstick.DetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,14 +37,14 @@ extension LipstickDetailViewController {
 }
 
 // MARK: Model
-extension LipstickDetailViewController: HasModelProtocol {
+extension Domain_Main.Lipstick.DetailViewController: HasModelProtocol {
     class DetailsProvider {
         static func price(currency: Domain_DataProvider.Lipstick.Provider.CurrencyAmount) -> String {
             return CurrencyFormatter.price(for: currency.price, code: currency.currency) ?? "\(currency.price) \(currency.currency)"
         }
-        static func details(_ model: Domain_DataProvider.Lipstick.Provider.Model?) -> LipstickDetailViewController.Model? {
+        static func details(_ model: Domain_DataProvider.Lipstick.Provider.Model?) -> Domain_Main.Lipstick.DetailViewController.Model? {
             guard let theModel = model else { return nil }
-            let result = LipstickDetailViewController.Model()
+            let result = Domain_Main.Lipstick.DetailViewController.Model()
             
             result.imageURL = theModel.imageURL
             result.title = theModel.vendor

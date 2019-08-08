@@ -13,16 +13,12 @@
 		0A34EFCC22EEF65100374929 /* AppearanceService+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34EFC922EEF65100374929 /* AppearanceService+Transitions.swift */; };
 		0A34EFCD22EEF65100374929 /* AppearanceService+ColorSchemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34EFCA22EEF65100374929 /* AppearanceService+ColorSchemes.swift */; };
 		0A34EFCE22EEF65100374929 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34EFCB22EEF65100374929 /* AppearanceService.swift */; };
-		0A34EFD022EF066100374929 /* LipstickDetailViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A34EFCF22EF066100374929 /* LipstickDetailViewController+View.swift */; };
 		0A6EFC8B22EB711C00BE391E /* ViewControllersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC8922EB711C00BE391E /* ViewControllersProtocols.swift */; };
 		0A6EFC8C22EB711C00BE391E /* ViewModelsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC8A22EB711C00BE391E /* ViewModelsProtocols.swift */; };
 		0A6EFC8E22EB714000BE391E /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC8D22EB714000BE391E /* LoadingViewController.swift */; };
 		0A6EFC9122EB955E00BE391E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9022EB955E00BE391E /* MainViewController.swift */; };
-		0A6EFC9322EC536600BE391E /* LipsticksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9222EC536600BE391E /* LipsticksListViewController.swift */; };
-		0A6EFC9522EC548000BE391E /* LipstickDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9422EC548000BE391E /* LipstickDetailViewController.swift */; };
 		0A6EFC9722EC6A7B00BE391E /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9622EC6A7B00BE391E /* NSLayoutConstraint+Extensions.swift */; };
 		0A6EFC9B22EC6B3800BE391E /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9A22EC6B3800BE391E /* Box.swift */; };
-		0A6EFC9D22ED9C1300BE391E /* LipstickSamplersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9C22ED9C1300BE391E /* LipstickSamplersListViewController.swift */; };
 		0A6EFC9F22ED9FBB00BE391E /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFC9E22ED9FBB00BE391E /* RootViewController.swift */; };
 		0A6EFCA222EDB59A00BE391E /* DataProvider+Lipstick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCA122EDB59A00BE391E /* DataProvider+Lipstick.swift */; };
 		0A6EFCA522EDB71000BE391E /* Network+Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCA422EDB71000BE391E /* Network+Routing.swift */; };
@@ -35,8 +31,6 @@
 		0A6EFCB722EDD30300BE391E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCB622EDD30300BE391E /* BaseCoordinator.swift */; };
 		0A6EFCB822EDDBE200BE391E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1371222EA1F2E00C77468 /* UIViewController+Extensions.swift */; };
 		0A6EFCB922EDDBE600BE391E /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1371122EA1F2E00C77468 /* UITableViewCell+Extensions.swift */; };
-		0A6EFCBB22EE049100BE391E /* LipstickSamplersListViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCBA22EE049100BE391E /* LipstickSamplersListViewController+Model.swift */; };
-		0A6EFCBD22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCBC22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift */; };
 		0A6EFCBF22EE15C400BE391E /* LoadingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCBE22EE15C400BE391E /* LoadingCoordinator.swift */; };
 		0A6EFCC122EE15E900BE391E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6EFCC022EE15E900BE391E /* MainCoordinator.swift */; };
 		0A938AE222EF2C2A00B5D968 /* NetworkWorm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1371E22EA28E200C77468 /* NetworkWorm.framework */; };
@@ -51,6 +45,13 @@
 		0AA1370622EA10BF00C77468 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA136F722EA106A00C77468 /* Services.swift */; };
 		0AA1370722EA10BF00C77468 /* ViewControllersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA136F822EA106A00C77468 /* ViewControllersService.swift */; };
 		0AA1371622EA1FCB00C77468 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1371022EA1F2E00C77468 /* Result.swift */; };
+		0AE0565322FC2B3B001A78F2 /* Domain_Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0565222FC2B3B001A78F2 /* Domain_Main.swift */; };
+		0AE0566022FC2B89001A78F2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0565A22FC2B89001A78F2 /* ListViewController.swift */; };
+		0AE0566622FC2D67001A78F2 /* DetailViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0566122FC2D66001A78F2 /* DetailViewController+View.swift */; };
+		0AE0566722FC2D67001A78F2 /* SamplersListViewController+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0566222FC2D66001A78F2 /* SamplersListViewController+Cell.swift */; };
+		0AE0566822FC2D67001A78F2 /* SamplersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0566322FC2D67001A78F2 /* SamplersListViewController.swift */; };
+		0AE0566922FC2D67001A78F2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0566422FC2D67001A78F2 /* DetailViewController.swift */; };
+		0AE0566A22FC2D67001A78F2 /* SamplersListViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0566522FC2D67001A78F2 /* SamplersListViewController+Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,16 +109,12 @@
 		0A34EFC922EEF65100374929 /* AppearanceService+Transitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppearanceService+Transitions.swift"; sourceTree = "<group>"; };
 		0A34EFCA22EEF65100374929 /* AppearanceService+ColorSchemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppearanceService+ColorSchemes.swift"; sourceTree = "<group>"; };
 		0A34EFCB22EEF65100374929 /* AppearanceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
-		0A34EFCF22EF066100374929 /* LipstickDetailViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickDetailViewController+View.swift"; sourceTree = "<group>"; };
 		0A6EFC8922EB711C00BE391E /* ViewControllersProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllersProtocols.swift; sourceTree = "<group>"; };
 		0A6EFC8A22EB711C00BE391E /* ViewModelsProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsProtocols.swift; sourceTree = "<group>"; };
 		0A6EFC8D22EB714000BE391E /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		0A6EFC9022EB955E00BE391E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		0A6EFC9222EC536600BE391E /* LipsticksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipsticksListViewController.swift; sourceTree = "<group>"; };
-		0A6EFC9422EC548000BE391E /* LipstickDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipstickDetailViewController.swift; sourceTree = "<group>"; };
 		0A6EFC9622EC6A7B00BE391E /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		0A6EFC9A22EC6B3800BE391E /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		0A6EFC9C22ED9C1300BE391E /* LipstickSamplersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipstickSamplersListViewController.swift; sourceTree = "<group>"; };
 		0A6EFC9E22ED9FBB00BE391E /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		0A6EFCA122EDB59A00BE391E /* DataProvider+Lipstick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataProvider+Lipstick.swift"; sourceTree = "<group>"; };
 		0A6EFCA422EDB71000BE391E /* Network+Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Routing.swift"; sourceTree = "<group>"; };
@@ -128,8 +125,6 @@
 		0A6EFCB122EDC15A00BE391E /* Test.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Test.bundle; sourceTree = "<group>"; };
 		0A6EFCB322EDD2DF00BE391E /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		0A6EFCB622EDD30300BE391E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		0A6EFCBA22EE049100BE391E /* LipstickSamplersListViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickSamplersListViewController+Model.swift"; sourceTree = "<group>"; };
-		0A6EFCBC22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LipstickSamplersListViewController+Cell.swift"; sourceTree = "<group>"; };
 		0A6EFCBE22EE15C400BE391E /* LoadingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCoordinator.swift; sourceTree = "<group>"; };
 		0A6EFCC022EE15E900BE391E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		0AA136B422EA0F8000C77468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +140,13 @@
 		0AA1371122EA1F2E00C77468 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		0AA1371222EA1F2E00C77468 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		0AA1371922EA28E200C77468 /* NetworkWorm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetworkWorm.xcodeproj; path = Components/NetworkWorm/NetworkWorm.xcodeproj; sourceTree = "<group>"; };
+		0AE0565222FC2B3B001A78F2 /* Domain_Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain_Main.swift; sourceTree = "<group>"; };
+		0AE0565A22FC2B89001A78F2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0AE0566122FC2D66001A78F2 /* DetailViewController+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailViewController+View.swift"; sourceTree = "<group>"; };
+		0AE0566222FC2D66001A78F2 /* SamplersListViewController+Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SamplersListViewController+Cell.swift"; sourceTree = "<group>"; };
+		0AE0566322FC2D67001A78F2 /* SamplersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplersListViewController.swift; sourceTree = "<group>"; };
+		0AE0566422FC2D67001A78F2 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0AE0566522FC2D67001A78F2 /* SamplersListViewController+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SamplersListViewController+Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,14 +231,10 @@
 		0A6EFC8622EB70C900BE391E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0AE0565422FC2B74001A78F2 /* Lipstick */,
 				0A6EFC9022EB955E00BE391E /* MainViewController.swift */,
-				0A6EFC9222EC536600BE391E /* LipsticksListViewController.swift */,
-				0A6EFC9422EC548000BE391E /* LipstickDetailViewController.swift */,
-				0A34EFCF22EF066100374929 /* LipstickDetailViewController+View.swift */,
-				0A6EFC9C22ED9C1300BE391E /* LipstickSamplersListViewController.swift */,
-				0A6EFCBA22EE049100BE391E /* LipstickSamplersListViewController+Model.swift */,
-				0A6EFCBC22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift */,
 				0A6EFCC022EE15E900BE391E /* MainCoordinator.swift */,
+				0AE0565222FC2B3B001A78F2 /* Domain_Main.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -370,6 +368,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0AE0565422FC2B74001A78F2 /* Lipstick */ = {
+			isa = PBXGroup;
+			children = (
+				0AE0566422FC2D67001A78F2 /* DetailViewController.swift */,
+				0AE0566122FC2D66001A78F2 /* DetailViewController+View.swift */,
+				0AE0566322FC2D67001A78F2 /* SamplersListViewController.swift */,
+				0AE0566222FC2D66001A78F2 /* SamplersListViewController+Cell.swift */,
+				0AE0566522FC2D67001A78F2 /* SamplersListViewController+Model.swift */,
+				0AE0565A22FC2B89001A78F2 /* ListViewController.swift */,
+			);
+			path = Lipstick;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -501,17 +512,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6EFC9322EC536600BE391E /* LipsticksListViewController.swift in Sources */,
 				0A6EFC9722EC6A7B00BE391E /* NSLayoutConstraint+Extensions.swift in Sources */,
-				0A6EFCBB22EE049100BE391E /* LipstickSamplersListViewController+Model.swift in Sources */,
 				0A6EFCAE22EDB82500BE391E /* MediaDelivery+DownloadWrapper.swift in Sources */,
+				0AE0565322FC2B3B001A78F2 /* Domain_Main.swift in Sources */,
 				0A6EFCB422EDD2DF00BE391E /* RootCoordinator.swift in Sources */,
 				0A34EFC422EE276300374929 /* BaseViewController.swift in Sources */,
 				0A6EFC8B22EB711C00BE391E /* ViewControllersProtocols.swift in Sources */,
+				0AE0566022FC2B89001A78F2 /* ListViewController.swift in Sources */,
 				0A6EFC8C22EB711C00BE391E /* ViewModelsProtocols.swift in Sources */,
 				0A34EFCC22EEF65100374929 /* AppearanceService+Transitions.swift in Sources */,
-				0A6EFC9D22ED9C1300BE391E /* LipstickSamplersListViewController.swift in Sources */,
-				0A34EFD022EF066100374929 /* LipstickDetailViewController+View.swift in Sources */,
+				0AE0566722FC2D67001A78F2 /* SamplersListViewController+Cell.swift in Sources */,
 				0A6EFCB722EDD30300BE391E /* BaseCoordinator.swift in Sources */,
 				0A6EFCBF22EE15C400BE391E /* LoadingCoordinator.swift in Sources */,
 				0AA1370722EA10BF00C77468 /* ViewControllersService.swift in Sources */,
@@ -521,18 +531,20 @@
 				0A6EFC9B22EC6B3800BE391E /* Box.swift in Sources */,
 				0A6EFCB822EDDBE200BE391E /* UIViewController+Extensions.swift in Sources */,
 				0A6EFC9122EB955E00BE391E /* MainViewController.swift in Sources */,
+				0AE0566622FC2D67001A78F2 /* DetailViewController+View.swift in Sources */,
 				0A6EFCA922EDB80C00BE391E /* NetworkService.swift in Sources */,
 				0A6EFCA222EDB59A00BE391E /* DataProvider+Lipstick.swift in Sources */,
+				0AE0566822FC2D67001A78F2 /* SamplersListViewController.swift in Sources */,
+				0AE0566A22FC2D67001A78F2 /* SamplersListViewController+Model.swift in Sources */,
 				0A34EFCE22EEF65100374929 /* AppearanceService.swift in Sources */,
-				0A6EFC9522EC548000BE391E /* LipstickDetailViewController.swift in Sources */,
 				0AA1370322EA10BF00C77468 /* LoggingService.swift in Sources */,
 				0A6EFCA522EDB71000BE391E /* Network+Routing.swift in Sources */,
 				0A6EFCAC22EDB81100BE391E /* MediaDeliveryService.swift in Sources */,
+				0AE0566922FC2D67001A78F2 /* DetailViewController.swift in Sources */,
 				0A6EFCA722EDB80900BE391E /* DataProviderService.swift in Sources */,
 				0AA1371622EA1FCB00C77468 /* Result.swift in Sources */,
 				0A6EFCB922EDDBE600BE391E /* UITableViewCell+Extensions.swift in Sources */,
 				0A34EFCD22EEF65100374929 /* AppearanceService+ColorSchemes.swift in Sources */,
-				0A6EFCBD22EE0B6C00BE391E /* LipstickSamplersListViewController+Cell.swift in Sources */,
 				0AA1370622EA10BF00C77468 /* Services.swift in Sources */,
 				0A6EFC8E22EB714000BE391E /* LoadingViewController.swift in Sources */,
 				0A067FE922EA0CC100A6ED13 /* AppDelegate.swift in Sources */,

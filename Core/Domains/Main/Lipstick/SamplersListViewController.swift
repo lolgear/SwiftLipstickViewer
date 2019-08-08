@@ -1,5 +1,5 @@
 //
-//  LipstickSamplersListViewController.swift
+//  SamplersListViewController.swift
 //  SwiftLipstickViewer
 //
 //  Created by Dmitry Lobanov on 28.07.2019.
@@ -9,13 +9,15 @@
 import Foundation
 import UIKit
 
-class LipstickSamplersListViewController: BaseViewController {
-    var model: Model?
-    var collectionView: UICollectionView?
+extension Domain_Main.Lipstick {
+    class SamplersListViewController: BaseViewController {
+        var model: Model?
+        var collectionView: UICollectionView?
+    }
 }
 
 // MARK: Actions
-extension LipstickSamplersListViewController {
+extension Domain_Main.Lipstick.SamplersListViewController {
     func selectCellAtSelectedIndexPath() {
         if let collectionView = self.collectionView, let indexPath = self.model?.selectedIndexPath {
             DispatchQueue.main.async {
@@ -27,14 +29,14 @@ extension LipstickSamplersListViewController {
 
 
 // MARK: HasModelProtocol
-extension LipstickSamplersListViewController: HasModelProtocol {
+extension Domain_Main.Lipstick.SamplersListViewController: HasModelProtocol {
     func updateForNewModel() {
         self.model?.configured(listener: self)
     }
 }
 
 // MARK: UICollectionViewDelegate
-extension LipstickSamplersListViewController: UICollectionViewDelegate {
+extension Domain_Main.Lipstick.SamplersListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // select item and tell model about it.
         // also update cell style?
@@ -47,7 +49,7 @@ extension LipstickSamplersListViewController: UICollectionViewDelegate {
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
-extension LipstickSamplersListViewController: UICollectionViewDelegateFlowLayout {
+extension Domain_Main.Lipstick.SamplersListViewController: UICollectionViewDelegateFlowLayout {
     
     /*
      item.height == item.width,
@@ -84,7 +86,7 @@ extension LipstickSamplersListViewController: UICollectionViewDelegateFlowLayout
 }
 
 // MARK: UICollectionViewDataSource
-extension LipstickSamplersListViewController: UICollectionViewDataSource {
+extension Domain_Main.Lipstick.SamplersListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.model?.numberOfSections() ?? 1 // take from model
     }
@@ -112,7 +114,7 @@ extension LipstickSamplersListViewController: UICollectionViewDataSource {
 // Or we can simply add collection View controller and then set their delegates to something?
 
 // MARK: View Lifecycle
-extension LipstickSamplersListViewController {
+extension Domain_Main.Lipstick.SamplersListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let collectionView: UICollectionView = {
@@ -148,7 +150,7 @@ extension LipstickSamplersListViewController {
 }
 
 // MARK: TableViewModelProtocol__Listener
-extension LipstickSamplersListViewController: TableViewModelProtocol__Listener {
+extension Domain_Main.Lipstick.SamplersListViewController: TableViewModelProtocol__Listener {
     func didAppend(at: Int) {
         // not used.
     }

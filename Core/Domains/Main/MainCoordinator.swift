@@ -19,12 +19,12 @@ class MainCoordinator: BaseCoordinator {
         // configure other controllers.
         //
         
-        let listModel = LipsticksListViewController.Model()
+        let listModel = Domain_Main.Lipstick.ListViewController.Model()
         listModel.controller = { [weak self] (index) in
             return self?.wantsLipstickDetails(at: index)
         }
         
-        let samplersModel = LipstickSamplersListViewController.Model()
+        let samplersModel = Domain_Main.Lipstick.SamplersListViewController.Model()
         samplersModel.didSelect = { [weak listModel] (index) in
             let (previous, next) = index
             listModel?.didSelect?(.init((previous ?? 0, next)), next)
@@ -35,8 +35,8 @@ class MainCoordinator: BaseCoordinator {
         
 //        samplersModel.list = self.dataProvider?.dataProvider?.list.compactMap{LipstickSamplersListViewController.Model.Row(color: $0.color)} ?? []
         
-        let listController = LipsticksListViewController().configured(model: listModel)
-        let samplersController = LipstickSamplersListViewController().configured(model: samplersModel)
+        let listController = Domain_Main.Lipstick.ListViewController().configured(model: listModel)
+        let samplersController = Domain_Main.Lipstick.SamplersListViewController().configured(model: samplersModel)
         
         let model = Domain_Main.MainViewController.Model()
         model.topController = listController
@@ -48,12 +48,12 @@ class MainCoordinator: BaseCoordinator {
         self.start(model: samplersModel)
     }
     
-    func updateSamplers(model: LipstickSamplersListViewController.Model) {
-        let list = self.dataProvider?.dataProvider?.list.compactMap{LipstickSamplersListViewController.Model.Row(color: $0.color)} ?? []
+    func updateSamplers(model: Domain_Main.Lipstick.SamplersListViewController.Model) {
+        let list = self.dataProvider?.dataProvider?.list.compactMap{Domain_Main.Lipstick.SamplersListViewController.Model.Row(color: $0.color)} ?? []
         model.reset(list: list)
     }
 
-    func start(model: LipstickSamplersListViewController.Model) {
+    func start(model: Domain_Main.Lipstick.SamplersListViewController.Model) {
 //        self.dataProvider?.dataProvider?.getProducts({ (result) in
             self.updateSamplers(model: model)
 //        })
@@ -93,14 +93,15 @@ extension MainCoordinator {
     // should be in LipstickDetailViewController.Model
 
     func stubDetails() -> UIViewController? {
-        let model = LipstickDetailViewController.Model()
+        
+        let model = Domain_Main.Lipstick.DetailViewController.Model()
         
 //        var imageURL: URL?
         model.title = "First"
         model.details = "Second"
         model.price = "Third"
         
-        return LipstickDetailViewController().configured(model: model)
+        return Domain_Main.Lipstick.DetailViewController().configured(model: model)
     }
     
     func wantsLipstickDetails(at index: Int) -> UIViewController? {
@@ -110,9 +111,9 @@ extension MainCoordinator {
         
         let model = dataProvider.list[index]
         // and also set media downloader for image.
-        guard let details = LipstickDetailViewController.DetailsProvider.details(model) else { return nil }
+        guard let details = Domain_Main.Lipstick.DetailViewController.DetailsProvider.details(model) else { return nil }
         details.media = self.media
-        let controller = LipstickDetailViewController().configured(model: details)
+        let controller = Domain_Main.Lipstick.DetailViewController().configured(model: details)
         return controller
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LipstickSamplersListViewController+Model.swift
+//  SamplersListViewController+Model.swift
 //  SwiftLipstickViewer
 //
 //  Created by Dmitry Lobanov on 28.07.2019.
@@ -18,7 +18,7 @@ protocol TableViewModelProtocol__Listener {
     func didReset(before: Int, after: Int)
 }
 
-extension LipstickSamplersListViewController {
+extension Domain_Main.Lipstick.SamplersListViewController {
     class Model {
         struct Row {
             var color: UIColor?
@@ -66,7 +66,7 @@ extension LipstickSamplersListViewController {
 }
 
 // MARK: Configurations
-extension LipstickSamplersListViewController.Model {
+extension Domain_Main.Lipstick.SamplersListViewController.Model {
     func configured(listener: TableViewModelProtocol__Listener?) -> Self {
         self.listener = listener
         return self
@@ -74,7 +74,7 @@ extension LipstickSamplersListViewController.Model {
 }
 
 // MARK: TableViewModelProtocol
-extension LipstickSamplersListViewController.Model : TableViewModelProtocol {
+extension Domain_Main.Lipstick.SamplersListViewController.Model : TableViewModelProtocol {
     func numberOfSections() -> Int {
         return 1
     }
@@ -98,7 +98,7 @@ extension LipstickSamplersListViewController.Model : TableViewModelProtocol {
 }
 
 // MARK: List Manipulations
-extension LipstickSamplersListViewController.Model {
+extension Domain_Main.Lipstick.SamplersListViewController.Model {
     func reset(list: [Row]) {
         let before = self.list
         self.list = list

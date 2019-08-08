@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // MARK: View
-extension LipstickDetailViewController {
+extension Domain_Main.Lipstick.DetailViewController {
     class View: UIView {
         var contentView: UIView?
         var image: UIImageView!
@@ -32,7 +32,7 @@ extension LipstickDetailViewController {
 }
 
 // MARK: View - Setup
-extension LipstickDetailViewController.View {
+extension Domain_Main.Lipstick.DetailViewController.View {
     func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -94,7 +94,7 @@ extension LipstickDetailViewController.View {
 }
 
 // MARK: View - Constraints
-extension LipstickDetailViewController.View {
+extension Domain_Main.Lipstick.DetailViewController.View {
     
     func addConstraints() {
         // put into StackView or just insets?
@@ -140,7 +140,7 @@ extension LipstickDetailViewController.View {
 }
 
 // MARK: View - Setters
-extension LipstickDetailViewController.View {
+extension Domain_Main.Lipstick.DetailViewController.View {
     func title(title: String?) {
         self.title.text = title
         self.invalidateIntrinsicContentSize()

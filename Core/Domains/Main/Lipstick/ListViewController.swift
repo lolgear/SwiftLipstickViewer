@@ -1,5 +1,5 @@
 //
-//  LipsticksListViewController.swift
+//  ListViewController.swift
 //  SwiftLipstickViewer
 //
 //  Created by Dmitry Lobanov on 27.07.2019.
@@ -14,7 +14,13 @@ import UIKit
 // Do we need word Lipstick?
 // Hm...
 // This should be PreviewsListViewController.
-class LipsticksListViewController: BaseViewController {
+extension Domain_Main.Lipstick {
+    class ListViewController: BaseViewController {
+        var model: Model?
+    }
+}
+
+extension Domain_Main.Lipstick.ListViewController {
     enum Direction {
         case none, left, right
         init(_ pair: (Int, Int)) {
@@ -44,11 +50,10 @@ class LipsticksListViewController: BaseViewController {
             }
         }
     }
-    var model: Model?
 }
 
 // MARK: View Lifecycle
-extension LipsticksListViewController {
+extension Domain_Main.Lipstick.ListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // do something.
@@ -58,7 +63,7 @@ extension LipsticksListViewController {
 }
 
 // MARK: Actions
-extension LipsticksListViewController {
+extension Domain_Main.Lipstick.ListViewController {
     func animate(direction: Direction, controller: UIViewController) {
         // choose direction and animate controller
         
@@ -105,7 +110,7 @@ extension LipsticksListViewController {
 }
 
 // MARK: Model
-extension LipsticksListViewController: HasModelProtocol {
+extension Domain_Main.Lipstick.ListViewController: HasModelProtocol {
     // this model also a model of list.
     // so, it should have all related stuff.
     class Model {
@@ -123,7 +128,3 @@ extension LipsticksListViewController: HasModelProtocol {
     }
 }
 
-// MARK: Container
-extension LipsticksListViewController {
-
-}
