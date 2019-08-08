@@ -80,7 +80,7 @@ extension Domain_Main.Lipstick.SamplersListViewController.Model : TableViewModel
     }
     
     func countOfElements(at: Int) -> Int {
-//        return self.list.count
+//        return self.list.count > 5 ? Int.max : self.list.count
         return self.list.count
     }
     

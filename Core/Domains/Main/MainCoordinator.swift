@@ -54,9 +54,7 @@ class MainCoordinator: BaseCoordinator {
     }
 
     func start(model: Domain_Main.Lipstick.SamplersListViewController.Model) {
-//        self.dataProvider?.dataProvider?.getProducts({ (result) in
-            self.updateSamplers(model: model)
-//        })
+        self.updateSamplers(model: model)
     }
 
     func wantsMoreData(waitingForImages: Bool, onResult: @escaping (Result<Bool>) -> ()) {
@@ -90,13 +88,10 @@ extension MainCoordinator {
 
 // MARK: Controllers
 extension MainCoordinator {
-    // should be in LipstickDetailViewController.Model
-
     func stubDetails() -> UIViewController? {
         
         let model = Domain_Main.Lipstick.DetailViewController.Model()
         
-//        var imageURL: URL?
         model.title = "First"
         model.details = "Second"
         model.price = "Third"

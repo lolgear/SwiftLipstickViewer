@@ -143,8 +143,6 @@ extension Domain_Main.Lipstick.SamplersListViewController {
         // also set cell reuse identifier
         collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.cellReuseIdentifier())
         
-//        UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        
 //        collectionView.backgroundColor = .orange
     }
 }

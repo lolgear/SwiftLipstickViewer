@@ -42,9 +42,9 @@ extension Domain_Main.Lipstick.DetailViewController: HasModelProtocol {
         static func price(currency: Domain_DataProvider.Lipstick.Provider.CurrencyAmount) -> String {
             return CurrencyFormatter.price(for: currency.price, code: currency.currency) ?? "\(currency.price) \(currency.currency)"
         }
-        static func details(_ model: Domain_DataProvider.Lipstick.Provider.Model?) -> Domain_Main.Lipstick.DetailViewController.Model? {
+        static func details(_ model: Domain_DataProvider.Lipstick.Provider.Model?) -> Model? {
             guard let theModel = model else { return nil }
-            let result = Domain_Main.Lipstick.DetailViewController.Model()
+            let result = Model()
             
             result.imageURL = theModel.imageURL
             result.title = theModel.vendor

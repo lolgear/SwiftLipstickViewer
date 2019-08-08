@@ -57,7 +57,6 @@ extension Domain_Main.MainViewController {
 extension Domain_Main.MainViewController {
     class Model {
         // move to root view controller
-//        var provider: Domain_DataProvider.Lipstick.Provider?
         var bottomController: UIViewController?
         var topController: UIViewController?
         func valid() -> Bool {

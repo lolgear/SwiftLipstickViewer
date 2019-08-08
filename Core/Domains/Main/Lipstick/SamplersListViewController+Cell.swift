@@ -74,19 +74,11 @@ extension Domain_Main.Lipstick.SamplersListViewController {
             }
         }
         
-        // maybe we need only layout subviews?...
-//        override func layoutSubviews() {
-//            super.layoutSubviews()
-//            let frame = self.bounds
-//            let filledViewFrame = CGRect(x: self.commonOffset, y: self.commonOffset, width: frame.size.width - 2 * self.commonOffset, height: frame.size.height - 2 * self.commonOffset)
-//            self.filledView?.frame = filledViewFrame
-//            self.strokedView?.frame = self.bounds
-//        }
-        
         required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             self.setup()
         }
+        
         override init(frame: CGRect) {
             super.init(frame: frame)
             self.setup()

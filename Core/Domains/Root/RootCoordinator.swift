@@ -16,12 +16,6 @@ class RootCoordinator: BaseCoordinator {
     var media: MediaDeliveryService?
     
     override func start() {
-        // we should create rootViewController
-        // and also set its model if needed?
-        // and present
-        // bla-bla
-        // root view model can request for theOne child.
-
         let model = RootViewController.Model()
         
         let controller = RootViewController().configured(model: model)
@@ -36,14 +30,13 @@ class RootCoordinator: BaseCoordinator {
         self.window?.rootViewController = controller
         self.window?.makeKeyAndVisible()
         loadingCoordinator.start()
-//        self.afterLoad()
     }
     
     func afterLoad() {
-        let mainViewController = Domain_Main.MainViewController()
-        let coordinator = MainCoordinator(viewController: mainViewController).configured(dataProvider: dataProvider).configured(media: media)
+        let controller = Domain_Main.MainViewController()
+        let coordinator = MainCoordinator(viewController: controller).configured(dataProvider: dataProvider).configured(media: media)
         let root = (self.window?.rootViewController as? RootViewController)
-        _ = root?.model?.configured(mainViewController)
+        _ = root?.model?.configured(controller)
         root?.connectModel()
         self.free(coordinator: self.childCoordinators[0])
         self.store(coordinator: coordinator)
